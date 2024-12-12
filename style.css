@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styling */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -7,250 +7,143 @@ body {
     color: #333;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
+    text-align: center;
 }
 
-/* Header Styles */
-header {
-    background-color: #003366;
-    padding: 15px 0;
+h1, h2 {
+    font-size: 32px;
+    color: #003366;
+    margin-bottom: 20px;
 }
 
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Navbar Styling */
 .navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #003366;
+}
+
+.navbar .logo img {
+    width: 100px;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-item {
+    text-decoration: none;
+    color: white;
     font-size: 18px;
-    color: #fff;
-    transition: color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .nav-item:hover {
     color: #ffcc00;
 }
 
-.logo img {
-    height: 50px;
-}
-
-/* Home Section */
-#home {
-    text-align: center;
-    background: linear-gradient(135deg, #0066cc, #99ccff);
-    color: white;
-    padding: 80px 20px;
-    border-bottom: 2px solid #003366;
-    background: url('background-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    position: relative;
-    z-index: -1;
-}
-
-h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    animation: fadeIn 2s ease-in-out;
-}
-
-p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    animation: fadeIn 3s ease-in-out;
-}
-
-.logo-under-text {
-    max-width: 200px;
-    margin-top: 20px;
-    animation: scaleUp 1.5s ease-out;
-}
-
+/* Voting Section */
 .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 .card {
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
     text-align: center;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
 }
 
-.card:hover {
-    transform: rotateY(10deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.candidate-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.king-icon {
-    width: 40px;
-    margin-top: -20px;
-}
-
-.vote-btn {
-    background-color: #ffcc00;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.vote-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.votes {
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-/* Start Voting Button */
-#start-input {
-    padding: 10px;
-    width: 200px;
-    margin-top: 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
-}
-
-.start-voting-btn {
-    background-color: #ffcc00;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.start-voting-btn:hover {
-    background-color: #cc9900;
-}
-
-/* Winner Announcement */
-#winner {
-    background-color: #003366;
-    color: #fff;
-    padding: 40px 20px;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.winner-details img {
-    width: 200px;
-    border-radius: 10px;
+.card .candidate-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 20px;
 }
 
-.winner-details h3 {
-    font-size: 24px;
+.card .king-icon {
+    width: 30px;
+    height: 30px;
+    margin-top: -20px;
     margin-bottom: 10px;
 }
 
-.winner-details p {
-    font-size: 18px;
-}
-
-/* About and Contact Sections */
-.about, .contact {
-    padding: 40px 20px;
-    text-align: center;
-    background-color: #fff;
-    margin-top: 50px;
-}
-
-.about h2, .contact h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.about p, .contact p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.about a {
+.card h3 {
+    font-size: 24px;
     color: #003366;
-    text-decoration: underline;
+    margin-bottom: 10px;
 }
 
-footer {
+.card p {
+    font-size: 18px;
+    color: #666;
+}
+
+.card .vote-btn {
     background-color: #003366;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes scaleUp {
-    0% {
-        transform: scale(0);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Tooltip Animation */
-.vote-btn[data-tooltip]:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 5px 10px;
+    color: white;
+    padding: 10px;
+    border: none;
     border-radius: 5px;
-    font-size: 14px;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.3s ease;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.card .vote-btn:hover {
+    background-color: #ffcc00;
+}
+
+.card .votes {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #003366;
+}
+
+/* Hidden EVA Input */
+#start-input {
+    display: none;
+}
+
+/* Start Voting Button */
+.start-voting-btn {
+    background-color: #003366;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.start-voting-btn:hover {
+    background-color: #ffcc00;
+}
+
+.start-voting-btn:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
 }
 
 /* Countdown Timer */
@@ -262,38 +155,84 @@ footer {
     margin-top: 30px;
 }
 
-/* Winner Badge Animation */
-.winner-details {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+/* Winner Announcement */
+#winner {
+    background-color: #003366;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+    display: none;
 }
 
-.winner-details::before {
-    content: "বিজয়ী!";
+#winner img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+#winner h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+#winner p {
     font-size: 20px;
-    font-weight: bold;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffcc00;
-    padding: 5px 15px;
-    border-radius: 20px;
-    animation: bounce 1s ease-in-out infinite;
+    margin-top: 10px;
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
+/* About and Contact Section */
+.about, .contact {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    margin-top: 40px;
+}
+
+.about h2, .contact h2 {
+    font-size: 28px;
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.about p, .contact p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
     }
-    40% {
-        transform: translateY(-10px);
+
+    .card {
+        width: 80%;
+        margin-bottom: 20px;
     }
-    60% {
-        transform: translateY(-5px);
+
+    .nav-links {
+        flex-direction: column;
+    }
+
+    .nav-item {
+        font-size: 16px;
+        margin-bottom: 10px;
     }
     }
     
