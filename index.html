@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Panel - Voting Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="Voting Panel Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-item">Home</a>
+                <a href="#about" class="nav-item">About</a>
+                <a href="#contact" class="nav-item">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <div class="container" id="home">
+        <h1>আপনার প্রিয় ব্যক্তিকে ভোট দিন</h1>
+        <p>যে প্রার্থী ৬ ঘণ্টায় ২০০ ভোট পাবে, তাকে বিজয়ী ঘোষণা করা হবে এবং উপহার হিসেবে একটি ইসলামীক বই দেওয়া হবে।</p>
+        <div class="cards">
+            <!-- Admin Card -->
+            <div class="card admin-card">
+                <img src="admin.jpg" alt="Md Mehadi Sarkar">
+                <h3>Md Mehadi Sarkar</h3>
+                <p>এডমিন</p>
+                <button disabled>ভোট দেওয়া যাবে না</button>
+            </div>
+            <!-- Voting Cards for candidates -->
+            <div class="card" id="person1">
+                <img src="person1.jpg" alt="Md Mehadi Sarkar">
+                <h3>Md Mehadi Sarkar</h3>
+                <p>প্রার্থী</p>
+                <button onclick="vote(0)">ভোট দিন</button>
+                <div class="votes" id="votes-person1">ভোট: 0</div>
+            </div>
+            <div class="card" id="person2">
+                <img src="person2.jpg" alt="Person 2">
+                <h3>Person 2</h3>
+                <p>প্রার্থী</p>
+                <button onclick="vote(1)">ভোট দিন</button>
+                <div class="votes" id="votes-person2">ভোট: 0</div>
+            </div>
+            <div class="card" id="person3">
+                <img src="person3.jpg" alt="Person 3">
+                <h3>Person 3</h3>
+                <p>প্রার্থী</p>
+                <button onclick="vote(2)">ভোট দিন</button>
+                <div class="votes" id="votes-person3">ভোট: 0</div>
+            </div>
+            <div class="card" id="person4">
+                <img src="person4.jpg" alt="Person 4">
+                <h3>Person 4</h3>
+                <p>প্রার্থী</p>
+                <button onclick="vote(3)">ভোট দিন</button>
+                <div class="votes" id="votes-person4">ভোট: 0</div>
+            </div>
+            <div class="card" id="person5">
+                <img src="person5.jpg" alt="Person 5">
+                <h3>Person 5</h3>
+                <p>প্রার্থী</p>
+                <button onclick="vote(4)">ভোট দিন</button>
+                <div class="votes" id="votes-person5">ভোট: 0</div>
+            </div>
+        </div>
+        
+        <!-- Button to start voting manually -->
+        <button id="start-voting" onclick="startVoting()" class="start-voting-btn">ভোটিং শুরু করুন</button>
+    </div>
+
+    <!-- Winner Announcement Section -->
+    <div id="winner" style="display: none;">
+        <h2>বিজয়ী ঘোষণা!</h2>
+        <div class="winner-details">
+            <img src="winner.jpg" alt="Winner Image">
+            <h3>Md Mehadi Sarkar</h3>
+            <p>ভোট: 150</p>
+            <p>তারিখ: 12 ডিসেম্বর, 2024</p>
+            <p>আপনি একটি ইসলামীক বই উপহার পেয়েছেন!</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about" id="about">
+        <h2>ভোটিং প্যানেল সম্পর্কে</h2>
+        <p>ভোটিং প্যানেল হল একটি প্ল্যাটফর্ম যেখানে আপনি আপনার প্রিয় ব্যক্তিকে ভোট দিতে পারবেন। এটি একটি সহজ এবং স্বচ্ছ পদ্ধতিতে ভোটিং ইভেন্টে অংশগ্রহণ করার সুযোগ দেয়।</p>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact" id="contact">
+        <h2>যোগাযোগ</h2>
+        <p>আপনার যদি কোনো প্রশ্ন থাকে, আমাদের <a href="https://www.facebook.com/mehadiX420" target="_blank">ফেসবুক</a> পাতায় যোগাযোগ করুন।</p>
+    </div>
+
+    <!-- Winner List -->
+    <div class="winner-list" id="winner-list">
+        <h2>বিজয়ীদের তালিকা</h2>
+        <ul id="winner-list-ul">
+            <!-- Example of winner's image and date -->
+            <li><img src="winner1.jpg" alt="Winner 1"> Md Mehadi Sarkar - 12 ডিসেম্বর, 2024</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2024 Voting Panel. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
