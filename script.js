@@ -1,4 +1,4 @@
-let voteCounts = [0, 0, 0, 0];
+let voteCounts = [0, 0, 0, 0]; // Initial votes for all candidates
 let voted = false; // To track if the user has already voted
 let winnerDeclared = false; // To check if winner is declared or not
 const voteElements = [
@@ -7,11 +7,17 @@ const voteElements = [
     document.getElementById("votes-person3"),
     document.getElementById("votes-person4")
 ];
+let currentVotingState = "inactive"; // Can be 'inactive', 'active'
 
 // This function handles the voting process
 function vote(candidateIndex) {
     if (voted) {
         alert("আপনি ইতিমধ্যে একটি ভোট দিয়েছেন!");
+        return;
+    }
+
+    if (currentVotingState !== "active") {
+        alert("ভোটিং এখন বন্ধ। পরবর্তীতে আবার চেষ্টা করুন!");
         return;
     }
 
@@ -60,6 +66,7 @@ let countdownInterval = setInterval(function() {
         document.querySelector('.countdown').innerHTML = "ভোটিং শেষ!";
         // Trigger winner announcement when voting ends
         checkWinner();
+        currentVotingState = "inactive"; // Disable voting after time is over
     } else {
         let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -70,8 +77,14 @@ let countdownInterval = setInterval(function() {
 
 // Start Voting Button
 function startVoting() {
-    // This functionality is now hidden
-    alert("ভোটিং শুরু হয়েছে!");
-    document.getElementById("start-voting").disabled = true; // Disable the start button after clicking
-            }
-            
+    let evaCode = document.getElementById('start-input').value.trim(); // Only you know the EVA code
+    if (evaCode === 'EVA') {
+        alert("ভোটিং শুরু হয়েছে!");
+        currentVotingState = "active"; // Voting is now active
+        document.getElementById("start-voting").disabled = true; // Disable the start button after clicking
+        document.getElementById('start-input').disabled = true; // Disable EVA input field after use
+    } else {
+        alert("অনুগ্রহ করে সঠিক EVA কোড প্রদান করুন!");
+    }
+                                                                 }
+    
