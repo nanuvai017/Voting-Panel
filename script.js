@@ -1,32 +1,43 @@
-let votingStarted = false;
 let votes = [0, 0, 0, 0]; // প্রতিটি প্রার্থীর ভোট সংখ্যা
-let voterVoted = false; // একবার ভোট দেয়া হলে ভোটার পুনরায় ভোট দিতে পারবে না
+let votingStarted = false;
+let voterVoted = false; // ভোটার ভোট দিয়েছে কিনা
 let countdown;
-let timeLeft = 6 * 60 * 60 * 1000; // 6 ঘন্টা
+let timeLeft = 6 * 60 * 60 * 1000; // 6 ঘণ্টা (মিলিসেকেন্ড)
 
-// পেজ লোড হওয়ার সময় LocalStorage থেকে ভোট সংখ্যা লোড করুন
+// পেজ লোড হওয়ার সময় ডেটা LocalStorage থেকে লোড করুন
 window.onload = () => {
     const savedVotes = localStorage.getItem("votes");
-    const voted = localStorage.getItem("voterVoted");
-    const startStatus = localStorage.getItem("votingStarted");
-    
+    const savedVotingStarted = localStorage.getItem("votingStarted");
+    const savedVoterVoted = localStorage.getItem("voterVoted");
+    const savedTimeLeft = localStorage.getItem("timeLeft");
+
     if (savedVotes) {
         votes = JSON.parse(savedVotes);
         updateVoteUI();
     }
-    voterVoted = voted === "true"; // যদি আগের ভোটার ভোট দিয়ে থাকে
-    votingStarted = startStatus === "true"; // ভোটিং শুরু হয়েছে কিনা
+
+    votingStarted = savedVotingStarted === "true";
+    voterVoted = savedVoterVoted === "true";
+
+    if (savedTimeLeft) {
+        timeLeft = parseInt(savedTimeLeft, 10);
+    }
+
+    if (votingStarted) {
+        startCountdown();
+    }
 };
 
 // ভোটিং শুরু করার ফাংশন
 function startVoting() {
-    const evaCode = document.getElementById('start-input').value.trim();
-    if (evaCode === 'EVA') {
+    const evaCode = document.getElementById("start-input").value.trim();
+    if (evaCode === "EVA") {
         alert("ভোটিং শুরু হয়েছে!");
         votingStarted = true;
+        localStorage.setItem("votingStarted", "true");
+        localStorage.setItem("timeLeft", timeLeft.toString());
         document.getElementById("start-input").disabled = true;
         document.getElementById("start-voting").disabled = true;
-        localStorage.setItem("votingStarted", "true"); // ভোটিং শুরু হয়েছে সেভ করুন
         startCountdown();
     } else {
         alert("সঠিক কোড লিখুন!");
@@ -48,7 +59,7 @@ function vote(candidateIndex) {
     votes[candidateIndex]++;
     voterVoted = true;
 
-    // ভোট সংখ্যা LocalStorage-এ সেভ করুন
+    // LocalStorage-এ ডেটা সেভ করুন
     localStorage.setItem("votes", JSON.stringify(votes));
     localStorage.setItem("voterVoted", "true");
 
@@ -65,7 +76,7 @@ function updateVoteUI() {
 
 // বিজয়ী চেক করার ফাংশন
 function checkForWinner() {
-    let winnerIndex = votes.findIndex(vote => vote >= 200);
+    let winnerIndex = votes.findIndex((vote) => vote >= 200);
     if (winnerIndex !== -1) {
         announceWinner(winnerIndex);
     }
@@ -83,7 +94,7 @@ function announceWinner(winnerIndex) {
 
     alert(`বিজয়ী ঘোষণা হয়েছে: Person ${winnerIndex + 1}!`);
 
-    // বিজয়ীর তথ্য LocalStorage-এ সেভ করুন
+    // LocalStorage আপডেট করুন
     localStorage.setItem("votingStarted", "false");
 }
 
@@ -92,6 +103,10 @@ function startCountdown() {
     const countdownElement = document.querySelector(".countdown");
     countdown = setInterval(() => {
         timeLeft -= 1000;
+
+        // LocalStorage-এ সময় আপডেট করুন
+        localStorage.setItem("timeLeft", timeLeft.toString());
+
         let hours = Math.floor(timeLeft / (60 * 60 * 1000));
         let minutes = Math.floor((timeLeft % (60 * 60 * 1000)) / (60 * 1000));
         let seconds = Math.floor((timeLeft % (60 * 1000)) / 1000);
@@ -110,7 +125,6 @@ function endVoting() {
     alert("ভোটিং সময় শেষ হয়েছে!");
     checkForWinner();
 
-    // ভোটিং বন্ধ হলে LocalStorage আপডেট করুন
+    // LocalStorage আপডেট করুন
     localStorage.setItem("votingStarted", "false");
-                         }
-        
+}
