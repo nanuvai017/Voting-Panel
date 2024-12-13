@@ -1,141 +1,87 @@
-/* Basic Styling */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: #003366;
-    padding: 10px 20px;
-}
-
-.navbar .logo img {
-    height: 40px;
-}
-
-.navbar .nav-links {
-    display: flex;
-    gap: 20px;
-}
-
-.nav-item {
+header {
+    background-color: #007BFF;
     color: white;
-    text-decoration: none;
-    font-size: 18px;
+    text-align: center;
+    padding: 15px 0;
 }
 
-.nav-item:hover {
-    color: #ffcc00;
-}
-
-/* Home Section */
 .container {
     text-align: center;
-    margin: 50px;
+    margin: 20px;
 }
 
-h1 {
-    font-size: 30px;
-    color: #003366;
-}
-
-p {
-    font-size: 18px;
-    color: #555;
-}
-
-.cards {
+.candidates-list {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
     margin-top: 30px;
 }
 
-.card {
-    width: 200px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: white;
+.candidate-card {
+    width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
     text-align: center;
 }
 
-.card img {
-    width: 100%;
-    height: auto;
+.candidate-img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .vote-btn {
-    background-color: #003366;
+    background-color: #28a745;
     color: white;
-    padding: 10px 20px;
     border: none;
+    padding: 10px 20px;
+    font-size: 14px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
 }
 
 .vote-btn:hover {
-    background-color: #ffcc00;
+    background-color: #218838;
 }
 
-/* EVA Code Input */
-#start-input {
-    padding: 10px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: 1px solid #003366;
-    width: 80%;
-    max-width: 300px;
-    margin-top: 20px;
-}
-
-#start-voting {
-    background-color: #003366;
-    color: white;
-    padding: 12px 30px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
+.votes {
     margin-top: 10px;
+    font-size: 16px;
 }
 
-#start-voting:hover {
-    background-color: #ffcc00;
-}
-
-#start-voting:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-}
-
-/* Countdown */
 .countdown {
-    font-size: 20px;
     margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff0000;
 }
 
-/* Winner Section */
 #winner {
     text-align: center;
-    display: none;
+    margin: 30px 0;
 }
 
-.winner-details img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-}
-
-.winner-details h3 {
-    font-size: 24px;
-    color: #003366;
+footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
