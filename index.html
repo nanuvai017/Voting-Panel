@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voting Panel - Voting Website</title>
+    <title>Voting Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,12 +12,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">
-                <img src="logo.png" alt="Voting Panel Logo" />
-            </div>
-            <div class="nav-links">
-                <a href="#home" class="nav-item">Home</a>
-                <a href="#about" class="nav-item">About</a>
-                <a href="#contact" class="nav-item">Contact</a>
+                <h1>ভোটিং প্যানেল</h1>
             </div>
         </nav>
     </header>
@@ -25,56 +20,51 @@
     <!-- Home Section -->
     <section id="home" class="container">
         <h1>আপনার প্রিয় ব্যক্তিকে ভোট দিন</h1>
-        <p>যে প্রার্থী ৬ ঘণ্টায় ২০০ ভোট পাবে, তাকে বিজয়ী ঘোষণা করা হবে এবং উপহার হিসেবে একটি ইসলামীক বই দেওয়া হবে।</p>
-        <img class="logo-under-text" src="king-logo.png" alt="Logo" />
-        <div class="cards">
+        <h2>যে প্রার্থী ৬ ঘণ্টায় ২০০ ভোট পাবে, তাকে বিজয়ী ঘোষণা করা হবে এবং উপহার দেওয়া হবে।</h2>
+        
+        <!-- Candidates Section -->
+        <div class="candidates-list">
             <!-- Candidate 1 -->
-            <div class="card">
+            <div class="candidate-card">
                 <img class="candidate-img" src="person1.jpg" alt="Person 1">
-                <img class="king-icon" src="king-icon.png" alt="King Emoji" />
                 <h3>Md Mehadi Sarkar</h3>
                 <p>প্রার্থী</p>
-                <button onclick="vote(0)" class="vote-btn" data-tooltip="ভোট দিন">ভোট দিন</button>
+                <button onclick="vote(0)" class="vote-btn">ভোট দিন</button>
                 <div class="votes" id="votes-person1">ভোট: 0</div>
             </div>
 
             <!-- Candidate 2 -->
-            <div class="card">
+            <div class="candidate-card">
                 <img class="candidate-img" src="person2.jpg" alt="Person 2">
-                <img class="king-icon" src="king-icon.png" alt="King Emoji" />
                 <h3>Person 2</h3>
                 <p>প্রার্থী</p>
-                <button onclick="vote(1)" class="vote-btn" data-tooltip="ভোট দিন">ভোট দিন</button>
+                <button onclick="vote(1)" class="vote-btn">ভোট দিন</button>
                 <div class="votes" id="votes-person2">ভোট: 0</div>
             </div>
 
             <!-- Candidate 3 -->
-            <div class="card">
+            <div class="candidate-card">
                 <img class="candidate-img" src="person3.jpg" alt="Person 3">
-                <img class="king-icon" src="king-icon.png" alt="King Emoji" />
                 <h3>Person 3</h3>
                 <p>প্রার্থী</p>
-                <button onclick="vote(2)" class="vote-btn" data-tooltip="ভোট দিন">ভোট দিন</button>
+                <button onclick="vote(2)" class="vote-btn">ভোট দিন</button>
                 <div class="votes" id="votes-person3">ভোট: 0</div>
             </div>
 
             <!-- Candidate 4 -->
-            <div class="card">
+            <div class="candidate-card">
                 <img class="candidate-img" src="person4.jpg" alt="Person 4">
-                <img class="king-icon" src="king-icon.png" alt="King Emoji" />
                 <h3>Person 4</h3>
                 <p>প্রার্থী</p>
-                <button onclick="vote(3)" class="vote-btn" data-tooltip="ভোট দিন">ভোট দিন</button>
+                <button onclick="vote(3)" class="vote-btn">ভোট দিন</button>
                 <div class="votes" id="votes-person4">ভোট: 0</div>
             </div>
         </div>
 
-        <!-- EVA Code Input for Admin -->
-        <input type="text" id="start-input" placeholder="EVA কোড লিখুন" />
-        <button id="start-voting" onclick="startVoting()" class="start-voting-btn" data-tooltip="ভোট শুরু করুন">ভোটিং শুরু করুন</button>
-
-        <!-- Countdown Timer -->
-        <div class="countdown"></div>
+        <!-- Start Voting Button -->
+        <input type="text" id="start-input" placeholder="" />
+        <button id="start-voting" onclick="startVoting()" class="start-voting-btn">ভোটিং শুরু করুন</button>
+        <div class="countdown">সময় বাকি: ৬ ঘন্টা</div>
     </section>
 
     <!-- Winner Announcement Section -->
@@ -84,30 +74,13 @@
             <img src="winner.jpg" alt="Winner Image" />
             <h3>Md Mehadi Sarkar</h3>
             <p>ভোট: 200</p>
-            <p>তারিখ: 12 ডিসেম্বর, 2024</p>
-            <p>আপনি একটি ইসলামীক বই উপহার পেয়েছেন!</p>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2>ভোটিং প্যানেল সম্পর্কে</h2>
-        <p>ভোটিং প্যানেল হল একটি প্ল্যাটফর্ম যেখানে আপনি আপনার প্রিয় ব্যক্তিকে ভোট দিতে পারবেন। এটি একটি সহজ এবং স্বচ্ছ পদ্ধতিতে ভোটিং ইভেন্টে অংশগ্রহণ করার সুযোগ দেয়।</p>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>যোগাযোগ</h2>
-        <p>আপনার যদি কোনো প্রশ্ন থাকে, আমাদের <a href="https://www.facebook.com/mehadiX420" target="_blank">ফেসবুক</a> পাতায় যোগাযোগ করুন।</p>
-    </section>
-
-    <!-- Footer Section -->
     <footer>
-        <p>© 2024 Voting Panel. 
-All rights reserved.</p>
+        <p>© 2024 Voting Panel. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-    </html>
-    
+</html>
